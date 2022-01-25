@@ -24,9 +24,7 @@ navigator.mediaDevices.getUserMedia({
   })
 
   socket.on('user-connected', userId => {
-    setInterval(() => {
       connectToNewUser(userId, stream)
-    }, 2000);
   })
   // input value
   let text = $("input");
