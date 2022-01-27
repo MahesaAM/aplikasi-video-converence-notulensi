@@ -55,17 +55,15 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="bg-dark">
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">NOTULEN</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Sign out</a>
     </div>
   </div>
 </header>
@@ -87,16 +85,14 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Ruang Rapat</h1>
+        <h1 class="h2 text-light">Ruang Rapat</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+          <div class="btn btn-sm btn-outline-secondary">
             <span data-feather="calendar"></span>
-            This week
-          </button>
+            <span id="tanggal"></span>
+          </div>
         </div>
       </div>
 
@@ -112,6 +108,10 @@
               <i class="fas fa-video"></i>
               <span>Stop Video</span>
            </div>
+           <div id="start" class="main__controls__button">
+            <i class="fas fa-file-alt"></i>
+            <span>Create Text</span>
+         </div>
         </div>
      </div>
 
@@ -126,9 +126,9 @@
         <span id="interim" class="text-secondary"></span>
       </div>
       <div class="mt-2">
-        <button class="btn btn-sm btn-success" id="start">Create Text</button>
+        <button class="btn btn-sm btn-success">Create Text</button>
         <button class="btn btn-sm btn-danger" id="stop">Stop</button>
-        <p id="status" class="lead mt-3 text-bold" style="display: none">Listenting ...</p>
+        <p id="status" class="lead mt-3 text-bold" style="display: none;color: white;">Listenting ...</p>
       </div>
       <div class="table-responsive mt-4">
         <table class="table table-striped table-sm">
@@ -160,5 +160,9 @@
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
       <script src="speechRecognition.js"></script>
       <script src="language.js"></script>
+      <script>
+        const d = new Date();
+document.getElementById("tanggal").innerHTML = d.getDate()+' / '+d.getMonth()+' / '+d.getFullYear();
+      </script>
     </body>
 </html>

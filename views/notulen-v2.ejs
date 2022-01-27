@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>Xtreme admin Template - The Ultimate Multipurpose admin template</title>
+    <!-- This page css -->
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+   <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
+   <script src="/socket.io/socket.io.js" defer></script>
+   <link rel="stylesheet" href="style.css">
+   <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+   <script src="script.js" defer></script>
+   <style>
+       video{
+         height: 150px;
+         width: 100%;
+         object-fit: cover;
+         padding: 8px;
+      }
+   </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo icon -->
+                            <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text">
+                             <!-- dark Logo text -->
+                             <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                             <!-- Light Logo text -->    
+                             <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                        </span>
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-left mr-auto">
+                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                        
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right">
+                        <!-- ============================================================== -->
+                        <!-- create new -->
+                        <!-- ============================================================== -->
+                        
+                        <!-- ============================================================== -->
+                        <!-- Comment -->
+                        <!-- ============================================================== -->
+                        
+                        <!-- ============================================================== -->
+                        <!-- End Comment -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+                        
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="docs/documentation.html" aria-expanded="false"><i class="mdi mdi-content-paste"></i><span class="hide-menu">Documentation</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="authentication-login1.html" aria-expanded="false"><i class="mdi mdi-directions"></i><span class="hide-menu">Log Out</span></a></li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Left Part  -->
+            <!-- ============================================================== -->
+            <div class="left-part bg-white fixed-left-part">
+                <!-- Mobile toggle button -->
+                <a class="ti-menu ti-close btn btn-success show-left-part d-block d-md-none" href="javascript:void(0)"></a>
+                <!-- Mobile toggle button -->
+                <div class="p-15">
+                    <h4>Chat Sidebar</h4>
+                </div>
+                <div class="scrollable position-relative" style="height:100%;">
+                    <div class="p-15">
+                        <h5 class="card-title">Anggota  </h5>
+                        <div style="display: flex; justify-content: center;" class="main__controls">
+                            <div class="main__controls__block">
+                               <div onclick="muteUnmute()" class="main__controls__button main__mute_button">
+                                  <i class="fas fa-microphone"></i>
+                                  <span>Mute</span>
+                               </div>
+                               <div onclick="playStop()" class="main__controls__button main__video_button" >
+                                  <i class="fas fa-video"></i>
+                                  <span>Stop Video</span>
+                               </div>
+                            </div>
+                         </div>
+                    </div>
+                    <ul class="mailbox list-style-none">
+                        <li>
+                            <div id="video-grid" class="message-center chat-scroll">
+                                
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Left Part  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right Part  Mail Compose -->
+            <!-- ============================================================== -->
+            <div class="right-part">
+                <div class="p-20">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Notulensi</h4>
+                            <div class="chat-box scrollable" style="height:calc(100vh - 300px);">
+                                <!--chat Row -->
+                                <ul class="chat-list">
+                                    <!--chat Row -->
+                                    <li class="chat-item">
+                                        <div class="chat-img"><img src="assets/images/users/1.jpg" alt="user"></div>
+                                        <div class="chat-content">
+                                            <h6 class="font-medium">James Anderson</h6>
+                                            <div class="box bg-light-info">Lorem Ipsum is simply dummy text of the printing &amp; type setting industry.</div>
+                                        </div>
+                                        <div class="chat-time">10:56 am</div>
+                                    </li>
+                                    <!--chat Row -->
+                                    <li class="chat-item">
+                                        <div class="chat-img"><img src="assets/images/users/2.jpg" alt="user"></div>
+                                        <div class="chat-content">
+                                            <h6 class="font-medium">Bianca Doe</h6>
+                                            <div class="box bg-light-info">It’s Great opportunity to work.</div>
+                                        </div>
+                                        <div class="chat-time">10:57 am</div>
+                                    </li>
+                                    <!--chat Row -->
+                                    <li class="odd chat-item">
+                                        <div class="chat-content">
+                                            <div class="box bg-light-inverse">I would love to join the team.</div>
+                                            <br>
+                                        </div>
+                                    </li>
+                                    <!--chat Row -->
+                                    <li class="odd chat-item">
+                                        <div class="chat-content">
+                                            <div class="box bg-light-inverse">Whats budget of the new project.</div>
+                                            <br>
+                                        </div>
+                                        <div class="chat-time">10:59 am</div>
+                                    </li>
+                                    <!--chat Row -->
+                                    <li class="chat-item">
+                                        <div class="chat-img"><img src="assets/images/users/3.jpg" alt="user"></div>
+                                        <div class="chat-content">
+                                            <h6 class="font-medium">Angelina Rhodes</h6>
+                                            <div class="box bg-light-info">Well we have good budget for the project</div>
+                                        </div>
+                                        <div class="chat-time">11:00 am</div>
+                                    </li>
+                                    <!--chat Row -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body border-top">
+                            <div class="row">
+                                <div style="display: none;" class="mt-4" id="div_language">
+                                    <h2 class="mb-3 text-light">Select Language</h2>
+                                    <select class="form-select bg-secondary text-light" id="select_language" onchange="updateCountry()"></select>
+                                    <select class="form-select bg-secondary text-light mt-2" id="select_dialect"></select>
+                                  </div>
+                                <div class="col-9">
+                                    <div class="input-field m-t-0 m-b-0" style="height: 50px;">
+                                        <span id="final" class="text-bold"></span>
+                                        <span id="interim" class="text-secondary"></span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p id="status" class="lead mt-3 text-bold" style="display: none;color: white;">Listenting ...</p>
+                                        <button class="btn btn-sm btn-success" id="start">Create Text</button>
+                                        <button class="btn btn-sm btn-danger" id="stop">Stop</button>
+                                      </div>
+                                </div>
+                                <div class="col-3">
+                                    
+                                    <!-- <a class="btn-circle btn-lg btn-cyan float-right text-white" href="javascript:void(0)"><i class="fas fa-paper-plane"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- customizer Panel -->
+    <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/extra-libs/taskboard/js/jquery.ui.touch-punch-improved.js"></script>
+    <script src="assets/extra-libs/taskboard/js/jquery-ui.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- apps -->
+    <script src="dist/js/app.min.js"></script>
+    <script src="dist/js/app.init.dark.js"></script>
+    <script src="dist/js/app-style-switcher.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <!-- <script src="assets/extra-libs/sparkline/sparkline.js"></script> -->
+    <!--Wave Effects -->
+    <!-- <script src="dist/js/waves.js"></script> -->
+    <!--Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <script>
+    $(function() {
+        $(document).on('keypress', "#textarea1", function(e) {
+            if (e.keyCode == 13) {
+                var id = $(this).attr("data-user-id");
+                var msg = $(this).val();
+                msg = msg_sent(msg);
+                $("#someDiv").append(msg);
+                $(this).val("");
+                $(this).focus();
+            }
+        });
+    });
+    </script>
+    <script src="speechRecognition.js"></script>
+    <script src="language.js"></script>
+</body>
+
+</html>
