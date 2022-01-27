@@ -23,15 +23,24 @@ if ("webkitSpeechRecognition" in window) {
 
     for (let i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
-        final_transcript += event.results[i][0].transcript;
+        final_transcript = event.results[i][0].transcript;
+        $('.chat-list').append(`<li class="odd chat-item">
+        <div class="chat-content">
+            <div class="box bg-light-inverse">`+final_transcript+`</div>
+            <br>
+        </div>
+    </li>`);
+    scrollNotulen();
+    
       } else {
         interim_transcript += event.results[i][0].transcript;
+        
       }
     }
     document.querySelector("#final").innerHTML = final_transcript;
     document.querySelector("#interim").innerHTML = interim_transcript;
   };
-
+  document.querySelector("#interim").innerHTML = '';
   document.querySelector("#start").onclick = () => {
     speechRecognition.start();
   };
@@ -40,4 +49,9 @@ if ("webkitSpeechRecognition" in window) {
   };
 } else {
   console.log("Speech Recognition Not Available");
+}
+
+const scrollNotulen = () => {
+  var d = $('.chat-box');
+  d.scrollTop(d.prop("scrollHeight"));
 }
