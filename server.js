@@ -15,12 +15,12 @@ app.use('/peerjs', peerServer);
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-  res.redirect(`/${uuidV4()}`)
+app.get('/notulen', (req, res) => {
+  res.render('notulenDaftar')
 })
 
-app.get('/:room', (req, res) => {
-  res.render('notulen-v2', { roomId: req.params.room })
+app.get('/rapat', (req, res) => {
+  res.render('rapat', { roomId: req.query.kode })
 })
 
 io.on('connection', socket => {
@@ -38,5 +38,6 @@ io.on('connection', socket => {
     })
   })
 })
+
 
 server.listen(process.env.PORT||3030)

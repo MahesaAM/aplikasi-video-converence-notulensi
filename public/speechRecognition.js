@@ -24,16 +24,19 @@ if ("webkitSpeechRecognition" in window) {
     for (let i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
         final_transcript = event.results[i][0].transcript;
-        $('.chat-list').append(`<li class="odd chat-item">
+        if (final_transcript != '') {
+          $('.chat-list').append(`<li class="odd chat-item">
         <div class="chat-content">
             <div class="box bg-light-inverse">`+final_transcript+`</div>
             <br>
         </div>
     </li>`);
+        }
     scrollNotulen();
     
       } else {
         interim_transcript += event.results[i][0].transcript;
+        scrollInput()
         
       }
     }
