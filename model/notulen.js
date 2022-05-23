@@ -1,13 +1,10 @@
 const mongoose = require('mongoose')
 const Notulen = mongoose.model('Notulen', {
-    idRoom : {
+    idRapat : {
         type: String
     },
-    idAnggota: {
-        type: String
-    },
-    text: {
-        type: String
+    notulen: {
+        type: Object
     }
 })
 

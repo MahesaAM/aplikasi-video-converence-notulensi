@@ -1,6 +1,8 @@
 if ("webkitSpeechRecognition" in window) {
   let speechRecognition = new webkitSpeechRecognition();
   let final_transcript = "";
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
 
   speechRecognition.continuous = true;
   speechRecognition.interimResults = true;
@@ -25,13 +27,29 @@ if ("webkitSpeechRecognition" in window) {
       if (event.results[i].isFinal) {
         final_transcript = event.results[i][0].transcript;
         if (final_transcript != '') {
+          let today = new Date();
+          let time = today.getHours() + ":" + today.getMinutes();
           $('.chat-list').append(`<li class="odd chat-item">
         <div class="chat-content">
             <div class="box bg-light-inverse">`+final_transcript+`</div>
             <br>
+            <p>`+time+`</p>
         </div>
     </li>`);
+    
+    $.ajax({
+      url: '/insertNotulen',
+      type: 'POST',
+      dataType: 'JSON',
+      data: {
+        idRapat:urlParams.get('kode'),
+        notulen: {
+          nama: 'mahesa',
+          notulen: final_transcript
         }
+      }
+  })
+    }
     scrollNotulen();
     
       } else {
