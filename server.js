@@ -47,7 +47,7 @@ app.get('/rapat', async (req, res) => {
 })
 
 app.post('/insertNotulen', (req, res) => {
-  Notulen.update(
+  Notulen.updateOne(
     {$push: {
       notulen: {
         $each: [{

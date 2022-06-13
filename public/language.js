@@ -69,8 +69,7 @@ for (var i = 0; i < langs.length; i++) {
   select_language.options[i] = new Option(langs[i][0], i);
 }
 
-select_language.selectedIndex = 6;
-updateCountry();
+select_language.selectedIndex = 1;
 select_dialect.selectedIndex = 6;
 
 function updateCountry() {
@@ -83,3 +82,4 @@ function updateCountry() {
   }
   select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
 }
+updateCountry();

@@ -130,7 +130,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a> -->
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -212,8 +212,16 @@
                 <div class="p-20">
                     <div class="card">
                         <div class="card-body">
-                            <button style="float:right" class="btn btn-sm btn-success" id="convert">Save Notulen</button>
-                            <h4 class="card-title">Notulensi</h4>
+                            <div class="d-flex justify-content-between">
+                                <h4 class="card-title">Notulensi</h4>
+                                <div>
+                                    <button class="btn btn-sm btn-success" id="convert">Save Notulen</button>
+                                    <div style="display: none;" id="div_language">
+                                        <select class="form-select bg-secondary text-light" id="select_language" onchange="updateCountry()"></select>
+                                        <select class="form-select bg-secondary text-light mt-2" id="select_dialect"></select>
+                                      </div>
+                                    </div>
+                            </div>
                             <div class="chat-box scrollable" style="height:calc(100vh - 300px);">
                                 <!--chat Row -->
                                 <ul class="chat-list">
@@ -234,11 +242,6 @@
                         </div>
                         <div class="card-body border-top">
                             <div class="row">
-                                <div style="display: none;" class="mt-4" id="div_language">
-                                    <h2 class="mb-3 text-light">Select Language</h2>
-                                    <select class="form-select bg-secondary text-light" id="select_language" onchange="updateCountry()"></select>
-                                    <select class="form-select bg-secondary text-light mt-2" id="select_dialect"></select>
-                                  </div>
                                 <div class="col-9">
                                     <div id="input-notulen" class="input-field m-t-0 m-b-0" style="height: 50px;overflow-y: auto;">
                                         <span id="final" class="text-bold"></span>
@@ -316,8 +319,8 @@
     });
     </script>
     
-    <script src="/speechRecognition.js"></script>
     <script src="/language.js"></script>
+    <script src="/speechRecognition.js"></script>
 </body>
 
 </html>
