@@ -235,16 +235,21 @@
                                             <table class="table no-wrap v-middle">
                                                 <thead>
                                                     <tr class="border-0">
-                                                        <th class="border-0">Team Lead</th>
-                                                        <th class="border-0">Project</th>
+                                                        <th class="border-0">Nomer</th>
+                                                        <th class="border-0">Kode Rapat</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody> 
                                                     <% notulen.forEach((row,index) => { %>
-                                                
                                                     <tr>
                                                         <td><%= index+1 %></td>
                                                         <td><%= row.idRapat %> </td>
+                                                        <td>
+                                                            <form action="/rapat" method="get">
+                                                                <input value="<%= row.idRapat %>" class="form-control" name="kode" type="hidden">
+                                                                <button type="submit" class="btn btn-info m-t-20 m-b-20" href="">Lanjut Rapat</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                     <% }) %>
                                                 </tbody>

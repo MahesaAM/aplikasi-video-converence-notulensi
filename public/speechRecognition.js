@@ -19,7 +19,39 @@ if ("webkitSpeechRecognition" in window) {
     document.querySelector("#status").style.display = "none";
     console.log("Speech Recognition Ended");
   };
-
+  let jml = 0;
+  setInterval(function () {
+    $.ajax({ 
+   url: '/getNotulen',
+   type: 'POST',
+   cache: false, 
+   data: { 
+    kode: urlParams.get('kode'),
+    }, 
+   success: function(data){
+    if(data[1] > jml) {
+      data[0].forEach((row) => {
+        $('.chat-list').append(`
+         <li class="chat-item">
+             <div class="chat-content">
+                 <h6 class="font-medium">${row.nama}</h6>
+                 <div class="box bg-light-success">${row.notulen}</div>
+                 <p>${row.jam}</p>
+             </div>
+         </li>
+         `)
+    })
+    var d = $('.chat-box');
+    d.scrollTop(d.prop("scrollHeight"));
+    jml = data[1];
+    }
+    
+   }
+   , error: function(jqXHR, textStatus, err){
+    //    alert('text status '+textStatus+', err '+err)
+   }
+  })
+  }, 5000);
   speechRecognition.onresult = (event) => {
     let interim_transcript = "";
 
@@ -29,13 +61,13 @@ if ("webkitSpeechRecognition" in window) {
         if (final_transcript != '') {
           let today = new Date();
           let time = today.getHours() + ":" + today.getMinutes();
-          $('.chat-list').append(`<li class="odd chat-item">
-        <div class="chat-content">
-            <div class="box bg-light-inverse">`+final_transcript+`</div>
-            <br>
-            <p>`+time+`</p>
-        </div>
-    </li>`);
+    //       $('.chat-list').append(`<li class="odd chat-item">
+    //     <div class="chat-content">
+    //         <div class="box bg-light-inverse">`+final_transcript+`</div>
+    //         <br>
+    //         <p>`+time+`</p>
+    //     </div>
+    // </li>`);
     
     $.ajax({
       url: '/insertNotulen',
@@ -45,7 +77,8 @@ if ("webkitSpeechRecognition" in window) {
         idRapat:urlParams.get('kode'),
         notulen: {
           nama: 'mahesa',
-          notulen: final_transcript
+          notulen: final_transcript,
+          jam: time
         }
       }
   })
@@ -71,6 +104,7 @@ if ("webkitSpeechRecognition" in window) {
 } else {
   console.log("Speech Recognition Not Available");
 }
+
 
 const scrollNotulen = () => {
   var d = $('.chat-box');

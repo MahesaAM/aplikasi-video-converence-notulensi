@@ -5,6 +5,9 @@ const Notulen = mongoose.model('Notulen', {
     },
     notulen: {
         type: Object
+    },
+    jam: {
+        type: String
     }
 })
 
